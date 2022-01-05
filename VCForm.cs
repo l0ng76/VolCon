@@ -12,17 +12,17 @@ using System.Windows.Forms;
 
 namespace VolCon
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class VCForm : System.Windows.Forms.Form
     {
-        CoreAudioController cc;
+        CoreAudioController cac;
 
         const int PACK_HEIGHT = 85;
         const int MARGIN = 20;
-        public Form()
+        public VCForm()
         {
             InitializeComponent();
             Width = 20;
-            cc = new CoreAudioController();                        
+            cac = new CoreAudioController();                        
         }
         
         private void Form_Shown(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace VolCon
 
             panel1.Controls.Clear();
 
-            var pbDevs = cc.GetDevices(AudioSwitcher.AudioApi.DeviceType.Playback, AudioSwitcher.AudioApi.DeviceState.Active).ToList();
+            var pbDevs = cac.GetDevices(AudioSwitcher.AudioApi.DeviceType.Playback, AudioSwitcher.AudioApi.DeviceState.Active).ToList();
             var defaultDevice = pbDevs.SingleOrDefault(x => x.IsDefaultDevice);
             if (defaultDevice != null) {
                 pbDevs.Remove(defaultDevice);
@@ -52,7 +52,7 @@ namespace VolCon
             for (int i = 0; i < pbDevs.Count; i++) {
                 CoreAudioDevice dev = pbDevs[i];
 
-                cf = new ChannelFrame(dev);
+                cf = new ChannelFrame(this, dev, pbDevs.Count);
                 cf.Parent = panel1;
                 panel1.Controls.Add(cf);
                 cf.Left = i * cf.Width;

@@ -39,16 +39,16 @@ namespace VolCon
         [DllImport("Shell32.dll", EntryPoint = "ExtractIconExW", CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
         private static extern int ExtractIconEx(string sFile, int iIndex, out IntPtr piLargeVersion, out IntPtr piSmallVersion, int amountIcons);
 
-        public ChannelFrame(CoreAudioDevice dev)
+        VCForm ownerForm;
+        public ChannelFrame(VCForm owner, CoreAudioDevice dev, int totalPlaybackDevs)
         {
             InitializeComponent();
+            ownerForm = owner;
+
             defaultBackColor = this.BackColor;
 
             cad = dev;
             label.Text = cad.Name;
-
-            if (cad.IsDefaultDevice)
-                label.Font = new Font(label.Font, label.Font.Style | FontStyle.Bold);
 
             updateControls((int)cad.Volume);
             
@@ -63,6 +63,19 @@ namespace VolCon
             } catch {
                 button.Text = "no img";
             }
+
+            string buttonTip = cad.FullName;
+            
+            if (totalPlaybackDevs > 1) {
+                if (cad.IsDefaultDevice) {
+                    label.Font = new Font(label.Font, label.Font.Style | FontStyle.Bold);
+                    buttonTip += Environment.NewLine + "Default output device";
+                }
+                if (cad.IsDefaultCommunicationsDevice)
+                    buttonTip += Environment.NewLine + "Default communications device";
+            }
+
+            ownerForm.toolTip.SetToolTip(button, buttonTip);
 
             cad.VolumeChanged.Subscribe(this);
         }
@@ -99,7 +112,7 @@ namespace VolCon
 
         private void button_Click(object sender, EventArgs e)
         {
-            Form.launchSoundCpl(",,{0.0.0.00000000}.{" + cad.Id.ToString() + "},general");            
+            VCForm.launchSoundCpl(",,{0.0.0.00000000}.{" + cad.Id.ToString() + "},general");            
         }
 
         private void button_MouseEnter(object sender, EventArgs e)

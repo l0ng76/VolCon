@@ -1,7 +1,7 @@
 ﻿
 namespace VolCon
 {
-    partial class Form
+    partial class VCForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,13 @@ namespace VolCon
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VCForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.soundPropertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +105,7 @@ namespace VolCon
         private System.Windows.Forms.ContextMenuStrip contextMenu;
         private System.Windows.Forms.ToolStripMenuItem soundPropertiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        internal System.Windows.Forms.ToolTip toolTip;
     }
 }
 

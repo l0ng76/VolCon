@@ -39,11 +39,11 @@ namespace VolCon
             // trackBar1
             // 
             this.trackBar1.LargeChange = 10;
-            this.trackBar1.Location = new System.Drawing.Point(20, 31);
+            this.trackBar1.Location = new System.Drawing.Point(19, 92);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 231);
+            this.trackBar1.Size = new System.Drawing.Size(45, 257);
             this.trackBar1.SmallChange = 5;
             this.trackBar1.TabIndex = 0;
             this.trackBar1.TabStop = false;
@@ -54,15 +54,15 @@ namespace VolCon
             // label
             // 
             this.label.AutoEllipsis = true;
-            this.label.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label.Dock = System.Windows.Forms.DockStyle.Top;
             this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label.Location = new System.Drawing.Point(0, 338);
+            this.label.Location = new System.Drawing.Point(0, 0);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(81, 40);
+            this.label.Size = new System.Drawing.Size(81, 35);
             this.label.TabIndex = 1;
             this.label.Text = "label1";
-            this.label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelBevel
             // 
@@ -76,9 +76,9 @@ namespace VolCon
             // labelVol
             // 
             this.labelVol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelVol.Location = new System.Drawing.Point(8, 10);
+            this.labelVol.Location = new System.Drawing.Point(16, 347);
             this.labelVol.Name = "labelVol";
-            this.labelVol.Size = new System.Drawing.Size(70, 18);
+            this.labelVol.Size = new System.Drawing.Size(61, 29);
             this.labelVol.TabIndex = 4;
             this.labelVol.Text = "label1";
             this.labelVol.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -91,9 +91,9 @@ namespace VolCon
             this.button.FlatAppearance.BorderSize = 0;
             this.button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
             this.button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button.Location = new System.Drawing.Point(9, 261);
+            this.button.Location = new System.Drawing.Point(14, 40);
             this.button.Name = "button";
-            this.button.Size = new System.Drawing.Size(64, 64);
+            this.button.Size = new System.Drawing.Size(53, 50);
             this.button.TabIndex = 5;
             this.button.TabStop = false;
             this.button.Text = "img";
