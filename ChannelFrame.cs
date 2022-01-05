@@ -99,8 +99,7 @@ namespace VolCon
 
         private void button_Click(object sender, EventArgs e)
         {
-            string arg = "shell32.dll,Control_RunDLL mmsys.cpl,,{0.0.0.00000000}.{"+cad.Id.ToString()+"},general";
-            Process.Start(Environment.SystemDirectory + "\\rundll32.exe", arg);
+            Form.launchSoundCpl(",,{0.0.0.00000000}.{" + cad.Id.ToString() + "},general");            
         }
 
         private void button_MouseEnter(object sender, EventArgs e)
