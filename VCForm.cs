@@ -30,7 +30,7 @@ namespace VolCon
             Visible = false;            
         }
 
-        void reshow()
+        internal void reShow()
         {
             Visible = false;
 
@@ -122,7 +122,7 @@ namespace VolCon
         private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) {
-                reshow();
+                reShow();
 
                 BringToFront();
                 Activate();

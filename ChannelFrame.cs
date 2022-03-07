@@ -46,9 +46,13 @@ namespace VolCon
             ownerForm = owner;
 
             defaultBackColor = this.BackColor;
-
+            
             cad = dev;
             label.Text = cad.Name;
+
+            if (cad.IsDefaultDevice) {
+                this.BackColor = Color.FromArgb(defaultBackColor.A, defaultBackColor.R-20, defaultBackColor.G, defaultBackColor.B-20);
+            }
 
             updateControls((int)cad.Volume);
             
@@ -112,7 +116,10 @@ namespace VolCon
 
         private void button_Click(object sender, EventArgs e)
         {
-            VCForm.launchSoundCpl(",,{0.0.0.00000000}.{" + cad.Id.ToString() + "},general");            
+            if (!cad.IsDefaultDevice) {
+                cad.SetAsDefault();
+                ownerForm.reShow();
+            }
         }
 
         private void button_MouseEnter(object sender, EventArgs e)
@@ -123,6 +130,11 @@ namespace VolCon
         private void button_MouseLeave(object sender, EventArgs e)
         {
             button.FlatAppearance.BorderSize = 0;
+        }
+
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VCForm.launchSoundCpl(",,{0.0.0.00000000}.{" + cad.Id.ToString() + "},general");
         }
     }
 }

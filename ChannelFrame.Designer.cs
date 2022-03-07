@@ -28,12 +28,16 @@ namespace VolCon
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.trackBar1 = new VolCon.ChannelFrame.NoFocusTrackBar();
             this.label = new System.Windows.Forms.Label();
             this.labelBevel = new System.Windows.Forms.Label();
             this.labelVol = new System.Windows.Forms.Label();
             this.button = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackBar1
@@ -87,6 +91,7 @@ namespace VolCon
             // 
             this.button.BackColor = System.Drawing.Color.Transparent;
             this.button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button.ContextMenuStrip = this.contextMenuStrip1;
             this.button.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(217)))));
             this.button.FlatAppearance.BorderSize = 0;
             this.button.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -102,6 +107,20 @@ namespace VolCon
             this.button.MouseEnter += new System.EventHandler(this.button_MouseEnter);
             this.button.MouseLeave += new System.EventHandler(this.button_MouseLeave);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.propertiesToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 26);
+            // 
+            // propertiesToolStripMenuItem
+            // 
+            this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
+            this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.propertiesToolStripMenuItem.Text = "Properties";
+            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
+            // 
             // ChannelFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +134,7 @@ namespace VolCon
             this.Name = "ChannelFrame";
             this.Size = new System.Drawing.Size(83, 378);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +146,7 @@ namespace VolCon
         private System.Windows.Forms.Label labelVol;
         private NoFocusTrackBar trackBar1;
         private System.Windows.Forms.Button button;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
     }
 }
